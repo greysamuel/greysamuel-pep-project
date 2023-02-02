@@ -28,17 +28,17 @@ public class AccountService  {
         
     }
     public Account checkLogIn(Account account){
-        int account_id = account.getAccount_id();
+        // int account_id = account.getAccount_id();
         // String user = account.getUsername();
         // String pass = account.getUsername();
         
         // if(username.equals(username) && password.equals(password)){
         // return accountDAO.getLogIn(account_id);
         // }
-        if(accountDAO.getUserById(account_id) == null){
-            accountDAO.insertNewUser(account);
+        // if(accountDAO.getUserById(account_id) == null){
+            // accountDAO.insertNewUser(account);
         return accountDAO.getLogIn(account);
-        }
-        return null;
+        // }
+        // return null;
     }
 }
