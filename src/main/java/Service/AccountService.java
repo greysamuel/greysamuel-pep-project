@@ -19,21 +19,24 @@ public class AccountService  {
     
     
     public Account addAccount(Account account) {
-    
-    
+        // int account_id = account.getAccount_id();
         if(account.username != "" && account.password.length() >= 4){
             return accountDAO.insertNewUser(account);
         }
-        
+    
         return null;
         
     }
     public Account checkLogIn(Account account){
-        // int account_id;
-        String username = account.getUsername();
-        String password = account.getUsername();
+        int account_id = account.getAccount_id();
+        // String user = account.getUsername();
+        // String pass = account.getUsername();
         
-        if(username.equals(username) && password.equals(password)){
+        // if(username.equals(username) && password.equals(password)){
+        // return accountDAO.getLogIn(account_id);
+        // }
+        if(accountDAO.getUserById(account_id) == null){
+            accountDAO.insertNewUser(account);
         return accountDAO.getLogIn(account);
         }
         return null;

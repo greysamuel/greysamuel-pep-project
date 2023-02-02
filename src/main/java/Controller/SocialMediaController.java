@@ -1,7 +1,9 @@
 package Controller;
 
+import java.util.List;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.javalin.Javalin;
@@ -62,9 +64,10 @@ public class SocialMediaController {
             context.status(200);
         }else{
             context.status(401);
-        }
-        
+        // }
+        // List<Account> accounts = accountService.checkLogIn();
+        // context.json(accounts);
     }
-
+    }
 
 }
