@@ -48,7 +48,9 @@ public class AccountDAO {
             
     //         ResultSet rs = preparedStatement.executeQuery();
     //         while(rs.next()){
-    //             Account accounts = new Account(rs.getInt("account_id"), rs.getString("username"),
+    //             Account accounts = new Account
+    //                     (rs.getInt("account_id"), 
+    //                     rs.getString("username"),
     //                     rs.getString("password"));
     //             account.add(accounts);
     //         }
@@ -61,11 +63,13 @@ public class AccountDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
 
-            String sql = "SELECT * FROM account WHERE account_id = ?;" ;
+            String sql = "SELECT * FROM account WHERE username = ? AND password = ?;" ;
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
+            preparedStatement.setString(1,account.getUsername());
+            preparedStatement.setString(2,account.getPassword());
             
-            preparedStatement.setInt(1,account.getAccount_id());
+            // preparedStatement.setInt(1,account.getAccount_id());
+
             
             
             ResultSet rs = preparedStatement.executeQuery();

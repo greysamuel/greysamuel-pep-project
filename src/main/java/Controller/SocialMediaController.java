@@ -26,6 +26,7 @@ public class SocialMediaController {
 
     public SocialMediaController(){
         this.accountService = new AccountService();
+        this.messageService = new MessageService();
     }
 
     /**
@@ -59,7 +60,7 @@ public class SocialMediaController {
         }
         
     }
-
+    // accountService.checkLogIn();
     private void postLoginHandler(Context context) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Account account = mapper.readValue(context.body(), Account.class);
@@ -69,11 +70,17 @@ public class SocialMediaController {
             context.status(200);
         }else{
             context.status(401);
+        }
+        // ObjectMapper mapper = new ObjectMapper();
+        // List <Account> accounts = accountService.checkLogIn();
+        // if(accounts != null){
+        //     context.json(mapper.writeValueAsString(accounts));
+        //     context.status(200);
+        // }else{
+        //     context.status(401);
         // }
-        // List<Account> accounts = accountService.checkLogIn();
-        // context.json(accounts);
     }
-    }
+    
 
     private void postMessageHandler(Context context) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();

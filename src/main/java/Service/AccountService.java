@@ -5,7 +5,7 @@ import java.util.List;
 import DAO.AccountDAO;
 import Model.Account;
 
-public class AccountService  {
+public class AccountService extends Account  {
     private AccountDAO accountDAO;
 
     public AccountService(){
@@ -28,17 +28,17 @@ public class AccountService  {
         
     }
     public Account checkLogIn(Account account){
-        // int account_id = account.getAccount_id();
-        // String user = account.getUsername();
-        // String pass = account.getUsername();
         
-        // if(username.equals(username) && password.equals(password)){
-        // return accountDAO.getLogIn(account_id);
-        // }
-        // if(accountDAO.getUserById(account_id) == null){
-            // accountDAO.insertNewUser(account);
+            if(account.username != "" && account.password.length() >= 4 ){    
         return accountDAO.getLogIn(account);
-        // }
-        // return null;
+            }
+        return null;    
     }
+
+    // public List <Account> checkLogIn(){
+    //     if( account_id != 0){
+    //     return accountDAO.getLogIn();
+    //     }
+    //     return null;
+    // }
 }
