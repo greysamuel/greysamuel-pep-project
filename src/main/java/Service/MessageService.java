@@ -5,7 +5,7 @@ import java.util.List;
 
 import DAO.MessageDAO;
 
-public class MessageService {
+public class MessageService extends Message {
     private MessageDAO messageDAO;
 
     public MessageService(){
@@ -34,4 +34,14 @@ public class MessageService {
         return messageDAO.getAllMessages();
     }
 
+    // public List <Message> getMessagebyId(int message_id){
+    //     if(message_id > 0){
+    //     return messageDAO.getMessageById(message_id);
+    //     }
+    //     return null;
+    // }
+        public Message getMessagebyId(int message_id){
+            
+            return messageDAO.getMessageById(message_id);
+        }
 }

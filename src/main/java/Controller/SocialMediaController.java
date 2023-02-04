@@ -39,7 +39,8 @@ public class SocialMediaController {
         app.post("/register", this::postAccountHandler);
         app.post("/login", this::postLoginHandler);
         app.post("/messages", this::postMessageHandler);
-        app.get("/messages", this::getAllMessageHandler);
+        app.get("/messages/", this::getAllMessageHandler);
+        app.get("messages/{message_id}", this::getMessageByIdHandler);
         return app;
     }
 
@@ -72,14 +73,7 @@ public class SocialMediaController {
         }else{
             context.status(401);
         }
-        // ObjectMapper mapper = new ObjectMapper();
-        // List <Account> accounts = accountService.checkLogIn();
-        // if(accounts != null){
-        //     context.json(mapper.writeValueAsString(accounts));
-        //     context.status(200);
-        // }else{
-        //     context.status(401);
-        // }
+        
     }
     
 
@@ -97,16 +91,24 @@ public class SocialMediaController {
 
     private void getAllMessageHandler(Context context) throws JsonProcessingException {
         // ObjectMapper mapper = new ObjectMapper();
-        // Message message = mapper.readValue(context.body(), Message.class);
-        // Message allMessage = messageService.getAllMessages(message);
-        // if(allMessage!=null){
-        //     context.json(mapper.writeValueAsString(allMessage));
-        //     context.status(200);
-        // }else{
-        //     context.status(400);
-        // }
-        List<Message> messages = messageService.getAllMessages();
-        context.json(messages);
+        // TypeReference<List<Message>> message = new TypeReference<List<Message>>() {};
+        // List<Message> messages = mapper.readValue(context.body(), messages);
+        List<Message> messageList= messageService.getAllMessages();
+        if(messageList != null){
+            context.json(messageList);
+            context.status(200);
+        }else{
+            context.json(messageList);
+        }
+    }
+
+    private void getMessageByIdHandler(Context context) throws JsonProcessingException {
+        
+        int message_id = Integer.parseInt(context.pathParam("message_id"));
+        
+        
+        context.json(messageService.getMessagebyId(message_id));
+        
         context.status(200);
     }
 

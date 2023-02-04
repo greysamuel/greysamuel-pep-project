@@ -1,7 +1,7 @@
-commit 19102508382e727ea35912eb4f4b228cb85ccbf1
+commit 3202658fcd802e58c1cb826b61d29d5ce2eda871
 Author: greysamuel <greysamuel@gmail.com>
-Date:   Fri Feb 3 02:07:48 2023 +0000
+Date:   Sat Feb 4 02:44:51 2023 +0000
 
-    Completed AuthIntegity Tests
+    Creating getAllMessage endpoint, DAO, Service
 
- 5 files changed, 89 insertions(+), 80 deletions(-)
+ 5 files changed, 110 insertions(+), 374 deletions(-)
