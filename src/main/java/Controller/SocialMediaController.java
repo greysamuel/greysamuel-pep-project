@@ -39,6 +39,7 @@ public class SocialMediaController {
         app.post("/register", this::postAccountHandler);
         app.post("/login", this::postLoginHandler);
         app.post("/messages", this::postMessageHandler);
+        app.get("/messages", this::getAllMessageHandler);
         return app;
     }
 
@@ -60,7 +61,7 @@ public class SocialMediaController {
         }
         
     }
-    // accountService.checkLogIn();
+    
     private void postLoginHandler(Context context) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Account account = mapper.readValue(context.body(), Account.class);
@@ -93,4 +94,20 @@ public class SocialMediaController {
             context.status(400);
         }
     }
+
+    private void getAllMessageHandler(Context context) throws JsonProcessingException {
+        // ObjectMapper mapper = new ObjectMapper();
+        // Message message = mapper.readValue(context.body(), Message.class);
+        // Message allMessage = messageService.getAllMessages(message);
+        // if(allMessage!=null){
+        //     context.json(mapper.writeValueAsString(allMessage));
+        //     context.status(200);
+        // }else{
+        //     context.status(400);
+        // }
+        List<Message> messages = messageService.getAllMessages();
+        context.json(messages);
+        context.status(200);
+    }
+
 }

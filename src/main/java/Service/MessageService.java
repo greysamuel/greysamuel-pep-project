@@ -1,5 +1,8 @@
 package Service;
 import Model.Message;
+
+import java.util.List;
+
 import DAO.MessageDAO;
 
 public class MessageService {
@@ -14,17 +17,21 @@ public class MessageService {
     }
 
     public Message addMessage(Message message) {
-        int m = message.getMessage_id();
+        // int m = message.getMessage_id();
         // int numDigits = String.valueOf(m).length();
-         boolean id  = message.equals(m);
          
-         id = true;
-        if(id = true && message.message_text != "" && message.message_text.length() <= 255){
+         
+         
+        if(message.message_text != "" && message.message_text.length() < 255){
             return messageDAO.insertNewMessage(message);
         }
     
         return null;
         
+    }
+
+    public List <Message> getAllMessages(){
+        return messageDAO.getAllMessages();
     }
 
 }
