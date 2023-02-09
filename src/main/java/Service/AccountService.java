@@ -20,7 +20,7 @@ public class AccountService extends Account  {
     
     public Account addAccount(Account account) {
         // int account_id = account.getAccount_id();
-        if(account.username != "" && account.password.length() >= 4){
+        if( account.username != "" && account.password.length() > 4){
             return accountDAO.insertNewUser(account);
         }
     
@@ -28,8 +28,8 @@ public class AccountService extends Account  {
         
     }
     public Account checkLogIn(Account account){
-        
-            if(account.username != "" && account.password.length() >= 4 ){    
+        // int account_id = account.getAccount_id();
+            if( account.username != "" && account.password.length() > 4 ){    
         return accountDAO.getLogIn(account);
             }
         return null;    
@@ -42,3 +42,4 @@ public class AccountService extends Account  {
     //     return null;
     // }
 }
+//account_id != 0 &&

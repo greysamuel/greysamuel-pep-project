@@ -1,7 +1,7 @@
-commit 3202658fcd802e58c1cb826b61d29d5ce2eda871
+commit 862d2162fa3a48ff653ec2338041692ab2affdc6
 Author: greysamuel <greysamuel@gmail.com>
-Date:   Sat Feb 4 02:44:51 2023 +0000
+Date:   Sat Feb 4 22:32:34 2023 +0000
 
-    Creating getAllMessage endpoint, DAO, Service
+    completed postAccountAndMessageThenGetMessage test
 
- 5 files changed, 110 insertions(+), 374 deletions(-)
+ 5 files changed, 103 insertions(+), 190 deletions(-)
