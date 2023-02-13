@@ -2,7 +2,7 @@ package DAO;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import Model.Message;
 import Util.ConnectionUtil;
@@ -125,22 +125,7 @@ public class MessageDAO {
         return null;
     }
 
-    // public Message updateMessage(int message_id, String message) {
-    //     Connection connection = ConnectionUtil.getConnection();
-    //     try {
-
-    //         String sql = "DELETE FROM message WHERE message_id = ?;";
-    //         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-    //         preparedStatement.setInt(1, message_id);
-
-    //         preparedStatement.executeUpdate();
-
-    //     } catch (SQLException e) {
-    //         System.out.println(e.getMessage());
-    //     }
-    //     return null;
-    // }
+ 
 
     public Message updateMessage(int message_id, String message) {
         Connection connection = ConnectionUtil.getConnection();
@@ -161,7 +146,3 @@ public class MessageDAO {
     }
 
 }
-// LEFT JOIN Account ON Message.time_posted_epoch = Account.account_id;
-// String sql = "SELECT * FROM Message RIGHT JOIN Account ON
-// Message.time_posted_epoch = Account.account_id WHERE message_id = ?;";
-//String message

@@ -1,8 +1,8 @@
 package Controller;
 
 import java.util.ArrayList;
-// import java.util.Collections;
-import java.util.List;
+
+
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -134,34 +134,23 @@ public class SocialMediaController {
 
         int message_id = Integer.parseInt(context.pathParam("message_id"));
         Message deletedMessage = messageService.deleteMessageById(message_id);
-        System.out.println("Deleted Message:" + deletedMessage);
-        // mapper.writeValueAsString(deletedMessage);
+        
+        
         if (deletedMessage != null) {
             context.json(mapper.writeValueAsString(deletedMessage));
             context.status(200);
-            System.out.println("Calling from Handler");
+            
         }
     }
 
-    // private void updateMessageHandler(Context context) throws
-    // JsonProcessingException {
-    // ObjectMapper mapper = new ObjectMapper();
-    // Message message = mapper.readValue(context.body(), Message.class);
-    // int message_id = Integer.parseInt(context.pathParam("message_id"));
-    // Message deletedMessage = messageService.updateMessageById(message_id,
-    // message.getMessage_text());
-    // if (deletedMessage != null) {
-    // context.json(mapper.writeValueAsString(deletedMessage));
-    // context.status(200);
-    // }
-    // }
+    
 
     private void updateMessageHandler(Context context) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Message message = mapper.readValue(context.body(), Message.class);
         int message_id = Integer.parseInt(context.pathParam("message_id"));
         Message updatedMessage = messageService.updateMessageId(message_id, message.getMessage_text());
-        System.out.println("Updated Message:" + updatedMessage);
+        
         if (updatedMessage != null) {
             context.json(mapper.writeValueAsString(updatedMessage));
             context.status(200);
